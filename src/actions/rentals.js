@@ -209,7 +209,7 @@ export const updateRental = (id, rentalData) => (dispatch) => {
   return bwmAxios.post("/graphql", requestBody)
     .then((res) => res.data.data.updateRental)
     .then((updatedRental) => {
-      console.log(updatedRental);
+      // console.log(updatedRental);
       dispatch({
         type: "UPDATE_RENTAL_SUCCESS",
         rental: updatedRental,

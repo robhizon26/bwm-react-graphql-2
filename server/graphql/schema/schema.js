@@ -48,12 +48,4 @@ module.exports = new GraphQLSchema({
   query: RootQuery,
   mutation: Mutation,
 });
-
-// module.exports = [
-//   RentalType,
-//   CloudinaryImageType,
-//   UserType,
-//   BookingType,
-//   StatusType,
-//   AuthDataType,
-// ];
+ 
