@@ -16,7 +16,7 @@ const store = initStore();
 const Providers = ({children}) => 
   <Provider store={store}>
     <AuthProvider>
-      <MapProvider apiKey="Rukxk4n6MVk8oILY0HUJAmAAvAiMM1XJ">
+      <MapProvider apiKey={process.env.REACT_APP_TOMTOM_APIKEY}>
         {children}
       </MapProvider>
     </AuthProvider>

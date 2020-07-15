@@ -1,5 +1,5 @@
 import axiosService from "services/AxiosService";
-import { extractGraphQLApiErrors } from "./index";
+import { extractApiErrors } from "./index";
 const { bwmAxios } = axiosService;
 
 export const registerUser = (registerData) => {
@@ -21,7 +21,7 @@ export const registerUser = (registerData) => {
   };
   return bwmAxios
     .post("/graphql", requestBody)
-    .catch((error) => Promise.reject(extractGraphQLApiErrors(error.response || [])));
+    .catch((error) => Promise.reject(extractApiErrors(error.response || [])));
 };
 
 export const loginUser = (loginData) => {
@@ -46,7 +46,7 @@ export const loginUser = (loginData) => {
     .then((res) => {
       return res.data.data.login.token;
     })
-    .catch((error) => Promise.reject(extractGraphQLApiErrors(error.response || [])));
+    .catch((error) => Promise.reject(extractApiErrors(error.response || [])));
 };
 
 export const userAuthenticated = (decodedToken) => {

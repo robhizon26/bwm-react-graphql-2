@@ -1,5 +1,5 @@
 import axiosService from "services/AxiosService";
-import { extractGraphQLApiErrors } from "./index";
+import { extractApiErrors } from "./index";
 const { bwmAxios } = axiosService;
 
 export const createBooking = (booking) => {
@@ -26,7 +26,7 @@ export const createBooking = (booking) => {
     .post("/graphql", requestBody)
     .then((res) => res.data.data.createBooking)
     .catch((error) =>
-      Promise.reject(extractGraphQLApiErrors(error.response || []))
+      Promise.reject(extractApiErrors(error.response || []))
     );
 };
 
@@ -156,7 +156,7 @@ export const deleteBooking = (bookingId) => (dispatch) => {
     .catch((error) => {
       dispatch({
         type: "REQUEST_ERROR",
-        errors: extractGraphQLApiErrors(error || []),
+        errors: extractApiErrors(error || []),
         resource,
       });
     });

@@ -10,7 +10,7 @@ export const uploadImage = image => {
     .then(res => res.data)
 }
 
-export const extractGraphQLApiErrors = (resError) => {
+export const extractApiErrors = (resError) => {
   let errors = [{title: 'Error!', detail: 'Ooops, something went wrong!'}];
   if (resError && resError.data && resError.data.errors) {
     errors =  [{title: 'Error!', detail: resError.data.errors[0].message}];   

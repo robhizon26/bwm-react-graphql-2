@@ -37,7 +37,7 @@ const BookingListing = ({
                 <p className="card-text"><span>Price: </span> <span className="booking-price-value">${booking.price}</span></p>
                 <Link 
                   to={{pathname: `/rentals/${booking.rental._id}`}} 
-                  className="btn btn-bwm-main">Go to Rental</Link>
+                  className="btn btn-bwm-main mr-2">Go to Rental</Link>
                 { renderMenu &&
                   renderMenu(booking._id)
                 }

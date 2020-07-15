@@ -1,5 +1,5 @@
 import axiosService from "services/AxiosService";
-import {  extractGraphQLApiErrors } from "./index";
+import {  extractApiErrors } from "./index";
 const { bwmAxios } = axiosService;
 
 export const verifyRentalOwner = (rentalId) => {
@@ -215,7 +215,7 @@ export const updateRental = (id, rentalData) => (dispatch) => {
         rental: updatedRental,
       });
     })
-    .catch((error) => Promise.reject(extractGraphQLApiErrors(error  || [])));
+    .catch((error) => Promise.reject(extractApiErrors(error  || [])));
 };
 
 export const deleteRental = (rentalId) => (dispatch) => {
@@ -248,7 +248,7 @@ export const deleteRental = (rentalId) => (dispatch) => {
     .catch((error) => {
       dispatch({
         type: "REQUEST_ERROR",
-        errors: extractGraphQLApiErrors(error || []),
+        errors: extractApiErrors(error || []),
         resource,
       });
     });
